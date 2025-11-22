@@ -13,4 +13,7 @@ def chat_endpoint(request: ChatRequest):
         response_text = generate_answer(request.message)
         return {"response": response_text}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"Chat Error: {error_details}")
+        raise HTTPException(status_code=500, detail=f"Internal Error: {str(e)}")

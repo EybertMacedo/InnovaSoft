@@ -16,7 +16,28 @@ def configure_genai():
 # Load Knowledge Base
 def load_knowledge_base() -> List[Dict]:
     try:
-        json_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "projects.json")
+        # Try multiple possible locations for the JSON file
+        base_dir = os.path.dirname(os.path.dirname(__file__)) # backend/
+        possible_paths = [
+            os.path.join(base_dir, "data", "projects.json"),
+            os.path.join(os.getcwd(), "backend", "data", "projects.json"),
+            os.path.join(os.getcwd(), "data", "projects.json"),
+            "projects.json"
+        ]
+        
+        json_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                json_path = path
+                break
+        
+        if not json_path:
+            print(f"CRITICAL: projects.json not found. Searched in: {possible_paths}")
+            print(f"Current CWD: {os.getcwd()}")
+            print(f"Directory listing: {os.listdir(os.getcwd())}")
+            return []
+
+        print(f"Loading knowledge base from: {json_path}")
         with open(json_path, "r") as f:
             return json.load(f)
     except Exception as e:
