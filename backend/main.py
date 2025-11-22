@@ -1,21 +1,10 @@
 import os
-from dotenv import load_dotenv
-
-# Load environment variables explicitly
-env_path = os.path.join(os.path.dirname(__file__), ".env")
-load_dotenv(env_path)
-
-print(f"Loading .env from: {env_path}")
-print(f"SENDER_EMAIL loaded: {'Yes' if os.getenv('SENDER_EMAIL') else 'No'}")
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import contact
 
 app = FastAPI()
 
-# Configure CORS
-# Allow all origins to prevent CORS issues on different Vercel domains
+# Configure CORS immediately to ensure error responses are visible
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,6 +17,39 @@ app.add_middleware(
 def health_check():
     return {"status": "ok", "message": "Backend is running"}
 
-# Include routers
-app.include_router(contact.router, prefix="/api")
+try:
+    from dotenv import load_dotenv
+    
+    # Load environment variables explicitly
+    env_path = os.path.join(os.path.dirname(__file__), ".env")
+    load_dotenv(env_path)
+    
+    print(f"Loading .env from: {env_path}")
+    print(f"SENDER_EMAIL loaded: {'Yes' if os.getenv('SENDER_EMAIL') else 'No'}")
+
+    from routers import contact
+    
+    # Include routers
+    app.include_router(contact.router, prefix="/api")
+
+except Exception as e:
+    print(f"CRITICAL STARTUP ERROR: {str(e)}")
+    import traceback
+    traceback.print_exc()
+    
+    @app.get("/api/{catchall:path}")
+    def startup_error(catchall: str):
+        return {
+            "status": "startup_error", 
+            "error": str(e),
+            "traceback": traceback.format_exc()
+        }
+    
+    @app.post("/api/{catchall:path}")
+    def startup_error_post(catchall: str):
+        return {
+            "status": "startup_error", 
+            "error": str(e),
+            "traceback": traceback.format_exc()
+        }
 
