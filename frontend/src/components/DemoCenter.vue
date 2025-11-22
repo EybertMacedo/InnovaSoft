@@ -32,7 +32,7 @@ const sendMessage = () => {
     isTyping.value = false
     chatMessages.value.push({
       id: Date.now() + 1,
-      text: 'Entendido. Podemos implementar visión computarizada para detectar cuellos de botella en tiempo real. ¿Te gustaría ver una demo?',
+      text: '[DEMO] Esta es una simulación estática. Para hablar con la IA real, usa el botón flotante en la esquina inferior derecha ↘️',
       sender: 'bot'
     })
   }, 1500)
@@ -86,7 +86,7 @@ onMounted(() => {
           <div class="p-4 border-b border-white/30 bg-white/20 flex items-center justify-between">
             <span class="font-semibold text-zinc-900 flex items-center gap-2">
               <MessageSquare class="w-4 h-4 text-zinc-900" />
-              Support Bot
+              Demo Chat Simulator
             </span>
             <span class="text-xs text-emerald-600 flex items-center gap-1">
               <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
