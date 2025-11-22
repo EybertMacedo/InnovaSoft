@@ -66,21 +66,36 @@ def find_relevant_context(query: str, knowledge_base: List[Dict], top_k: int = 3
     if not configure_genai():
         return "Error: API Key not configured."
 
-    query_embedding = get_embedding(query)
+    try:
+        query_embedding = get_embedding(query)
+    except Exception:
+        print("Embedding failed, falling back to keyword search")
+        return keyword_search(query, knowledge_base, top_k)
+
     if not query_embedding:
-        return ""
+        return keyword_search(query, knowledge_base, top_k)
 
     scored_docs = []
     for item in knowledge_base:
         # We cache embeddings in memory for this simple demo
         # In production, these should be pre-calculated and stored in the JSON or a DB
         if 'embedding' not in item:
-            # Generate embedding for the content on the fly (slow for first run, but fine for demo)
-            item['embedding'] = get_embedding(item['content'])
+            try:
+                # Generate embedding for the content on the fly (slow for first run, but fine for demo)
+                item['embedding'] = get_embedding(item['content'])
+            except Exception:
+                # If embedding generation fails for an item, skip it or use keyword search results mixed in?
+                # For simplicity, if ANY embedding fails, we might want to abort to keyword search
+                # But let's try to continue
+                item['embedding'] = None
         
-        if item['embedding']:
+        if item.get('embedding'):
             score = cosine_similarity(query_embedding, item['embedding'])
             scored_docs.append((score, item['content']))
+    
+    # If we couldn't generate embeddings for enough items, fallback
+    if not scored_docs:
+        return keyword_search(query, knowledge_base, top_k)
 
     # Sort by score descending
     scored_docs.sort(key=lambda x: x[0], reverse=True)
@@ -88,6 +103,28 @@ def find_relevant_context(query: str, knowledge_base: List[Dict], top_k: int = 3
     # Return top_k context
     context_parts = [doc[1] for doc in scored_docs[:top_k]]
     return "\n\n".join(context_parts)
+
+def keyword_search(query: str, knowledge_base: List[Dict], top_k: int = 3) -> str:
+    """Fallback search using simple keyword matching"""
+    query_terms = query.lower().split()
+    scored_docs = []
+    
+    for item in knowledge_base:
+        score = 0
+        content = item['content'].lower()
+        title = item.get('title', '').lower()
+        
+        for term in query_terms:
+            if term in title:
+                score += 3 # Higher weight for title match
+            if term in content:
+                score += 1
+        
+        if score > 0:
+            scored_docs.append((score, item['content']))
+            
+    scored_docs.sort(key=lambda x: x[0], reverse=True)
+    return "\n\n".join([doc[1] for doc in scored_docs[:top_k]])
 
 # Generate Answer
 def generate_answer(query: str) -> str:
