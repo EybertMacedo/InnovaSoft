@@ -35,8 +35,15 @@ const handleContact = async () => {
       showContactModal.value = false
       contactForm.value = { name: '', email: '', message: '' }
     } else {
-      const errorData = await response.json();
-      alert(`Error: ${errorData.detail || 'Hubo un error al enviar el mensaje.'}`);
+      const contentType = response.headers.get("content-type");
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.detail || 'Hubo un error al enviar el mensaje.'}`);
+      } else {
+        const errorText = await response.text();
+        console.error('Non-JSON Error Response:', errorText);
+        alert('Error del servidor (Ver consola para detalles). Posiblemente un crash 500.');
+      }
     }
   } catch (error) {
     console.error('Error:', error)
