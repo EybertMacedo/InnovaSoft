@@ -1,7 +1,7 @@
 # InnovaSoft - Enterprise AI & Software Solutions
 
 <p align="center">
-  <img src="frontend/public/logo_white.png" alt="InnovaSoft Logo" style="max-width: 200px; width: 100%; height: auto; display: block; margin: 0 auto;">
+  <img src="frontend/public/logo_white.png" alt="InnovaSoft Logo" style="max-width: 100px; width: 100%; height: auto; display: block; margin: 0 auto;">
 </p>
 
 **InnovaSoft** is a high-performance, modern landing page designed for a forward-thinking software development agency specializing in Enterprise AI and tailor-made software solutions. Built with a focus on aesthetics, performance, and user experience, it features a sleek glassmorphism design and a robust, secure backend for client communications.
