@@ -31,10 +31,11 @@ try:
     print(f"Loading .env from: {env_path}")
     print(f"SENDER_EMAIL loaded: {'Yes' if os.getenv('SENDER_EMAIL') else 'No'}")
 
-    from routers import contact
+    from routers import contact, chat
     
     # Include routers
     app.include_router(contact.router, prefix="/api")
+    app.include_router(chat.router, prefix="/api")
 
 except Exception as e:
     print(f"CRITICAL STARTUP ERROR: {str(e)}")

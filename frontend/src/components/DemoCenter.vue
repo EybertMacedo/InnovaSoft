@@ -72,7 +72,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="demo" class="min-h-screen flex flex-col justify-center py-20 px-6 relative overflow-hidden z-10">
+  <section id="demo" class="flex flex-col justify-center py-12 px-6 relative overflow-hidden z-10">
     <div class="max-w-7xl mx-auto relative z-10">
       <h2 class="text-3xl font-bold text-zinc-900 mb-12 flex items-center gap-3">
         <Zap class="w-8 h-8 text-zinc-900" />

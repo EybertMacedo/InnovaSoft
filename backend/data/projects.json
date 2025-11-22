@@ -1,0 +1,49 @@
+[
+    {
+        "id": "profile",
+        "type": "bio",
+        "content": "Alexis es Lead AI Architect & Data Scientist. Experto en automatización y Computer Vision. Ex-SafetyMind (seguridad industrial) y Ministerio de Vivienda. Especializado en transformar operaciones industriales con Inteligencia Artificial. Stack: YOLOv8, OpenCV, LangChain, Unity 3D, Python."
+    },
+    {
+        "id": "1",
+        "title": "Auto-WhatsApp Business",
+        "type": "project",
+        "content": "Auto-WhatsApp Business es un sistema de bots desarrollado con Twilio y Node.js para automatizar la atención al cliente en WhatsApp Business."
+    },
+    {
+        "id": "2",
+        "title": "Industrial Safety Vision",
+        "type": "project",
+        "content": "Industrial Safety Vision es un sistema de visión por computadora que utiliza YOLOv8 para la detección de Equipos de Protección Personal (EPPs) y detección de fallos (cobbles) en entornos industriales."
+    },
+    {
+        "id": "3",
+        "title": "Behavior AI",
+        "type": "project",
+        "content": "Behavior AI es una solución de inteligencia artificial para la detección de anomalías y seguridad comportamental en tiempo real."
+    },
+    {
+        "id": "4",
+        "title": "Gov-Tech Assistant",
+        "type": "project",
+        "content": "Gov-Tech Assistant es un asistente inteligente para la clasificación documental automática utilizando Grandes Modelos de Lenguaje (LLMs), diseñado para el sector gobierno."
+    },
+    {
+        "id": "5",
+        "title": "Predictive Core",
+        "type": "project",
+        "content": "Predictive Core es un dashboard avanzado para la gestión y predicción de inventarios utilizando técnicas de análisis de datos."
+    },
+    {
+        "id": "6",
+        "title": "Unity Industrial Sim",
+        "type": "project",
+        "content": "Unity Industrial Sim es una simulación industrial interactiva en 3D que se ejecuta en el navegador (WebGL), desarrollada con Unity."
+    },
+    {
+        "id": "7",
+        "title": "Smart OCR",
+        "type": "project",
+        "content": "Smart OCR es una herramienta de reconocimiento óptico de caracteres inteligente para la extracción de datos estructurados a partir de documentos escaneados o imágenes."
+    }
+]

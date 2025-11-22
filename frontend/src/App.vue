@@ -7,6 +7,7 @@ import DemoCenter from './components/DemoCenter.vue'
 import FounderProfile from './components/FounderProfile.vue'
 import Footer from './components/Footer.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
+import ChatWidget from './components/ChatWidget.vue'
 
 const heroRef = ref(null)
 
@@ -31,5 +32,6 @@ const handleLogoClick = () => {
     <FounderProfile />
     <Footer />
     <WhatsAppButton />
+    <ChatWidget />
   </div>
 </template>
