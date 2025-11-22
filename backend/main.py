@@ -1,4 +1,8 @@
 import os
+import sys
+
+# Add current directory to sys.path to ensure modules are found
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 

@@ -42,7 +42,7 @@ const handleContact = async () => {
       } else {
         const errorText = await response.text();
         console.error('Non-JSON Error Response:', errorText);
-        alert('Error del servidor (Ver consola para detalles). Posiblemente un crash 500.');
+        alert(`Error del servidor: ${errorText.substring(0, 150)}...`);
       }
     }
   } catch (error) {
