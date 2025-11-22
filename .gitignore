@@ -53,3 +53,9 @@ pnpm-debug.log*
 
 # Vercel
 .vercel
+
+# Local Data
+backend/data/knowledge_base.txt
+backend/token.json
+backend/credentials.json
+*.log
