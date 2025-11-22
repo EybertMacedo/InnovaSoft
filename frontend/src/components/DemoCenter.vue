@@ -38,7 +38,10 @@ const sendMessage = async () => {
       body: JSON.stringify({ message: userText })
     })
 
-    if (!response.ok) throw new Error('Error en la respuesta')
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      throw new Error(errorData.detail || 'Error desconocido en el servidor')
+    }
 
     const data = await response.json()
     
@@ -49,9 +52,15 @@ const sendMessage = async () => {
     })
   } catch (error) {
     console.error(error)
+    // Try to parse the error message from the API if possible, otherwise show the error object
+    let errorMessage = 'Lo siento, hubo un error al conectar con mi cerebro digital.'
+    if (error.message && error.message !== 'Error en la respuesta') {
+       errorMessage += ` Detalles: ${error.message}`
+    }
+    
     chatMessages.value.push({
       id: Date.now() + 1,
-      text: 'Lo siento, hubo un error al conectar con mi cerebro digital. Por favor intenta de nuevo.',
+      text: errorMessage,
       sender: 'bot'
     })
   } finally {
