@@ -55,7 +55,7 @@ const handleContact = async () => {
 </script>
 
 <template>
-  <section id="founder" class="flex flex-col justify-center py-12 px-6 relative z-10">
+  <section id="founder" class="flex flex-col justify-center py-24 px-6 relative z-10 scroll-mt-24">
     <div class="max-w-4xl mx-auto bg-white/40 backdrop-blur-xl border border-white/50 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 rounded-none shadow-lg hover:shadow-xl transition-all duration-500">
       <div class="relative">
         <div class="w-32 h-32 md:w-48 md:h-48 rounded-none bg-white/50 p-1 backdrop-blur-sm shadow-inner">

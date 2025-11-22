@@ -33,7 +33,7 @@ const selectedProject = ref(null)
 </script>
 
 <template>
-  <section id="projects" class="flex flex-col justify-center py-12 px-6 relative z-10">
+  <section id="projects" class="flex flex-col justify-center py-24 px-6 relative z-10 scroll-mt-24">
     <div class="max-w-7xl mx-auto">
       <h2 class="text-3xl font-bold text-zinc-900 mb-12 flex items-center gap-3">
         <Terminal class="w-8 h-8 text-zinc-900" />
