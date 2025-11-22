@@ -10,32 +10,53 @@ import {
 
 // 1. Chat Simulator
 const chatMessages = ref([
-  { id: 1, text: 'Hola, necesito optimizar mi línea de producción.', sender: 'user' }
+  { id: 1, text: '¡Hola! Soy la IA de InnovaSoft. Pregúntame sobre mis proyectos, habilidades o experiencia.', sender: 'bot' }
 ])
 const chatInput = ref('')
 const isTyping = ref(false)
 
-const sendMessage = () => {
-  if (!chatInput.value.trim()) return
+const sendMessage = async () => {
+  if (!chatInput.value.trim() || isTyping.value) return
+  
+  const userText = chatInput.value
   
   // Add user message
   chatMessages.value.push({
     id: Date.now(),
-    text: chatInput.value,
+    text: userText,
     sender: 'user'
   })
   chatInput.value = ''
   
-  // Simulate bot typing
+  // Bot typing state
   isTyping.value = true
-  setTimeout(() => {
-    isTyping.value = false
+  
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userText })
+    })
+
+    if (!response.ok) throw new Error('Error en la respuesta')
+
+    const data = await response.json()
+    
     chatMessages.value.push({
       id: Date.now() + 1,
-      text: '[DEMO] Esta es una simulación estática. Para hablar con la IA real, usa el botón flotante en la esquina inferior derecha ↘️',
+      text: data.response,
       sender: 'bot'
     })
-  }, 1500)
+  } catch (error) {
+    console.error(error)
+    chatMessages.value.push({
+      id: Date.now() + 1,
+      text: 'Lo siento, hubo un error al conectar con mi cerebro digital. Por favor intenta de nuevo.',
+      sender: 'bot'
+    })
+  } finally {
+    isTyping.value = false
+  }
 }
 
 // 2. Vision Simulator
@@ -86,7 +107,7 @@ onMounted(() => {
           <div class="p-4 border-b border-white/30 bg-white/20 flex items-center justify-between">
             <span class="font-semibold text-zinc-900 flex items-center gap-2">
               <MessageSquare class="w-4 h-4 text-zinc-900" />
-              Demo Chat Simulator
+              InnovaSoft AI Assistant
             </span>
             <span class="text-xs text-emerald-600 flex items-center gap-1">
               <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
