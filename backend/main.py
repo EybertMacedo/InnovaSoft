@@ -15,13 +15,10 @@ from routers import contact
 app = FastAPI()
 
 # Configure CORS
-# Get allowed origins from env, default to local and production URLs
-allowed_origins_str = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,https://innovasoft-landing.vercel.app")
-allowed_origins = [origin.strip() for origin in allowed_origins_str.split(",")]
-
+# Allow all origins to prevent CORS issues on different Vercel domains
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
