@@ -5,6 +5,14 @@
             "destination": "/backend/main.py"
         },
         {
+            "source": "/assets/(.*)",
+            "destination": "/frontend/assets/$1"
+        },
+        {
+            "source": "/logo_white.png",
+            "destination": "/frontend/logo_white.png"
+        },
+        {
             "source": "/(.*)",
             "destination": "/frontend/index.html"
         }
