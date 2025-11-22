@@ -1,12 +1,8 @@
 # InnovaSoft - Enterprise AI & Software Solutions
 
-<div align="center">
-  <img src="frontend/public/logo_white.png" alt="InnovaSoft Logo" width="50">
-</div>
+<img src="frontend/public/logo_white.png" alt="InnovaSoft Logo" width="50"> **InnovaSoft** is a high-performance, modern landing page designed for a forward-thinking software development agency specializing in Enterprise AI and tailor-made software solutions. Built with a focus on aesthetics, performance, and user experience, it features a sleek glassmorphism design and a robust, secure backend for client communications.
 
-**InnovaSoft** is a high-performance, modern landing page designed for a forward-thinking software development agency specializing in Enterprise AI and tailor-made software solutions. Built with a focus on aesthetics, performance, and user experience, it features a sleek glassmorphism design and a robust, secure backend for client communications.
-
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework:** [Vue.js 3](https://vuejs.org/) (Composition API)
@@ -24,7 +20,7 @@
 ### Deployment
 - **Platform:** [Vercel](https://vercel.com/) (Serverless Functions for Python Backend)
 
-## ✨ Features
+## Features
 
 - **Modern UI/UX:** "Sharp Glass" aesthetic with premium glassmorphism effects and smooth animations.
 - **Fully Responsive:** Optimized for all devices, from mobile phones to large desktop screens.
@@ -37,7 +33,7 @@
   - Environment variable protection for all sensitive credentials.
   - CORS configured for security.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 innovasoft-landing/
