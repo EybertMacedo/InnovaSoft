@@ -55,7 +55,7 @@ def get_embedding(text: str) -> List[float]:
         return result['embedding']
     except Exception as e:
         print(f"Error getting embedding: {e}")
-        return []
+        raise e
 
 # Calculate Cosine Similarity
 def cosine_similarity(a: List[float], b: List[float]) -> float:
@@ -118,4 +118,5 @@ def generate_answer(query: str) -> str:
         return response.text
     except Exception as e:
         print(f"Error generating answer: {e}")
-        return "Lo siento, hubo un error al procesar tu pregunta."
+        # Re-raise exception to be caught by the router
+        raise e
