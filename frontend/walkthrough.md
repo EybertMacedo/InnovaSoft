@@ -1,7 +1,3 @@
-# InnovaSoft Landing Page Walkthrough
-
-I have successfully generated the high-level Landing Page for InnovaSoft using Vue 3, Vite, and Tailwind CSS.
-
 ## Features Implemented
 
 1.  **Tech Stack**: Vue 3 (Composition API), Vite, Tailwind CSS, Lucide Icons.

@@ -1,49 +1,49 @@
 [
-    {
-        "id": "profile",
-        "type": "bio",
-        "content": "Alexis es Lead AI Architect & Data Scientist. Experto en automatización y Computer Vision. Ex-SafetyMind (seguridad industrial) y Ministerio de Vivienda. Especializado en transformar operaciones industriales con Inteligencia Artificial. Stack: YOLOv8, OpenCV, LangChain, Unity 3D, Python."
-    },
-    {
-        "id": "1",
-        "title": "Auto-WhatsApp Business",
-        "type": "project",
-        "content": "Auto-WhatsApp Business es un sistema de bots desarrollado con Twilio y Node.js para automatizar la atención al cliente en WhatsApp Business."
-    },
-    {
-        "id": "2",
-        "title": "Industrial Safety Vision",
-        "type": "project",
-        "content": "Industrial Safety Vision es un sistema de visión por computadora que utiliza YOLOv8 para la detección de Equipos de Protección Personal (EPPs) y detección de fallos (cobbles) en entornos industriales."
-    },
-    {
-        "id": "3",
-        "title": "Behavior AI",
-        "type": "project",
-        "content": "Behavior AI es una solución de inteligencia artificial para la detección de anomalías y seguridad comportamental en tiempo real."
-    },
-    {
-        "id": "4",
-        "title": "Gov-Tech Assistant",
-        "type": "project",
-        "content": "Gov-Tech Assistant es un asistente inteligente para la clasificación documental automática utilizando Grandes Modelos de Lenguaje (LLMs), diseñado para el sector gobierno."
-    },
-    {
-        "id": "5",
-        "title": "Predictive Core",
-        "type": "project",
-        "content": "Predictive Core es un dashboard avanzado para la gestión y predicción de inventarios utilizando técnicas de análisis de datos."
-    },
-    {
-        "id": "6",
-        "title": "Unity Industrial Sim",
-        "type": "project",
-        "content": "Unity Industrial Sim es una simulación industrial interactiva en 3D que se ejecuta en el navegador (WebGL), desarrollada con Unity."
-    },
-    {
-        "id": "7",
-        "title": "Smart OCR",
-        "type": "project",
-        "content": "Smart OCR es una herramienta de reconocimiento óptico de caracteres inteligente para la extracción de datos estructurados a partir de documentos escaneados o imágenes."
-    }
+  {
+    "id": "profile",
+    "type": "bio",
+    "content": "Alexis es Lead AI Architect & Data Scientist. Experto en automatizaci\u00f3n y Computer Vision. Ex-SafetyMind (seguridad industrial) y Ministerio de Vivienda. Especializado en transformar operaciones industriales con Inteligencia Artificial. Stack: YOLOv8, OpenCV, LangChain, Unity 3D, Python."
+  },
+  {
+    "id": "1",
+    "title": "Auto-WhatsApp Business",
+    "type": "project",
+    "content": "Auto-WhatsApp Business es un sistema de bots desarrollado con Twilio y Node.js para automatizar la atenci\u00f3n al cliente en WhatsApp Business."
+  },
+  {
+    "id": "2",
+    "title": "Industrial Safety Vision",
+    "type": "project",
+    "content": "Industrial Safety Vision es un sistema de visi\u00f3n por computadora que utiliza YOLOv8 para la detecci\u00f3n de Equipos de Protecci\u00f3n Personal (EPPs) y detecci\u00f3n de fallos (cobbles) en entornos industriales."
+  },
+  {
+    "id": "3",
+    "title": "Behavior AI",
+    "type": "project",
+    "content": "Behavior AI es una soluci\u00f3n de inteligencia artificial para la detecci\u00f3n de anomal\u00edas y seguridad comportamental en tiempo real."
+  },
+  {
+    "id": "4",
+    "title": "Gov-Tech Assistant",
+    "type": "project",
+    "content": "Gov-Tech Assistant es un asistente inteligente para la clasificaci\u00f3n documental autom\u00e1tica utilizando Grandes Modelos de Lenguaje (LLMs), dise\u00f1ado para el sector gobierno."
+  },
+  {
+    "id": "5",
+    "title": "Predictive Core",
+    "type": "project",
+    "content": "Predictive Core es un dashboard avanzado para la gesti\u00f3n y predicci\u00f3n de inventarios utilizando t\u00e9cnicas de an\u00e1lisis de datos."
+  },
+  {
+    "id": "6",
+    "title": "Unity Industrial Sim",
+    "type": "project",
+    "content": "Unity Industrial Sim es una simulaci\u00f3n industrial interactiva en 3D que se ejecuta en el navegador (WebGL), desarrollada con Unity."
+  },
+  {
+    "id": "7",
+    "title": "Smart OCR",
+    "type": "project",
+    "content": "Smart OCR es una herramienta de reconocimiento \u00f3ptico de caracteres inteligente para la extracci\u00f3n de datos estructurados a partir de documentos escaneados o im\u00e1genes."
+  }
 ]
