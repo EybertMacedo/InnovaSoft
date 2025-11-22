@@ -35,7 +35,8 @@ const handleContact = async () => {
       showContactModal.value = false
       contactForm.value = { name: '', email: '', message: '' }
     } else {
-      alert('Hubo un error al enviar el mensaje.')
+      const errorData = await response.json();
+      alert(`Error: ${errorData.detail || 'Hubo un error al enviar el mensaje.'}`);
     }
   } catch (error) {
     console.error('Error:', error)
