@@ -2,7 +2,7 @@ import os
 import google.generativeai as genai
 from typing import List, Dict
 from qdrant_client import QdrantClient
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
 # Configure Clients
 QDRANT_URL = os.getenv("QDRANT_ENDPOINT")
@@ -17,9 +17,9 @@ if QDRANT_URL and QDRANT_API_KEY:
     except Exception as e:
         print(f"Failed to init Qdrant: {e}")
 
-# Initialize Local Embedding Model
-# We use the same model as in init_qdrant.py
-embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+# Initialize Local Embedding Model (FastEmbed)
+# This uses ONNX and is much lighter than PyTorch
+embedding_model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 # Configure Gemini (for Answer Generation only)
 def configure_genai():
@@ -32,7 +32,8 @@ def configure_genai():
 
 def get_embedding(text: str) -> List[float]:
     try:
-        return embedding_model.encode(text).tolist()
+        embeddings = list(embedding_model.embed([text]))
+        return embeddings[0].tolist()
     except Exception as e:
         print(f"Error getting embedding: {e}")
         raise e

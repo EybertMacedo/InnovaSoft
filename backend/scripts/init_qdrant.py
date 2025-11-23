@@ -66,17 +66,19 @@ def parse_knowledge_base(file_path: str) -> List[Dict]:
         
     return chunks
 
-# Use local embeddings to avoid Gemini quotas
-from sentence_transformers import SentenceTransformer
+# Use fastembed (ONNX) to avoid heavy PyTorch dependencies
+from fastembed import TextEmbedding
 
-# Initialize local model
-model = SentenceTransformer('all-MiniLM-L6-v2')
+# Initialize local model (lightweight ONNX version of MiniLM)
+# fastembed downloads the model automatically (~80MB)
+model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 def get_embedding(text: str) -> List[float]:
     try:
         # Generate embedding locally
-        embedding = model.encode(text).tolist()
-        return embedding
+        # fastembed returns a generator of vectors, we take the first one
+        embeddings = list(model.embed([text]))
+        return embeddings[0].tolist()
     except Exception as e:
         print(f"Error getting embedding: {e}")
         return None
