@@ -16,6 +16,14 @@
 
 </div>
 
+## 🚀 Despliegue
+
+### Frontend (Vercel)
+El frontend está optimizado para desplegarse en Vercel.
+
+### Backend (Digital Ocean)
+Debido a los requerimientos de memoria para los embeddings de IA, recomendamos desplegar el backend en Digital Ocean.
+👉 **[Ver Guía de Despliegue en Digital Ocean](DEPLOY_DIGITALOCEAN.md)**
  **InnovaSoft-landing** is a high-performance, modern landing page designed for a forward-thinking software development agency specializing in Enterprise AI and tailor-made software solutions. Built with a focus on aesthetics, performance, and user experience, it features a sleek glassmorphism design and a robust, secure backend for client communications.
 
 ## Tech Stack
@@ -34,7 +42,8 @@
 - **Validation:** Pydantic
 
 ### Deployment
-- **Platform:** [Vercel](https://vercel.com/) (Serverless Functions for Python Backend)
+- **Frontend:** [Vercel](https://vercel.com/)
+- **Backend:** [Digital Ocean](https://www.digitalocean.com/) (Docker Container)
 
 ## Features
 
