@@ -61,3 +61,4 @@ backend/data/projects.json
 backend/token.json
 backend/credentials.json
 *.log
+DEPLOY_DIGITALOCEAN.md
