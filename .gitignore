@@ -56,6 +56,8 @@ pnpm-debug.log*
 
 # Local Data
 backend/data/knowledge_base.txt
+backend/data/knoledge_base.txt
+backend/data/projects.json
 backend/token.json
 backend/credentials.json
 *.log
