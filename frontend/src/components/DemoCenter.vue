@@ -32,10 +32,16 @@ const sendMessage = async () => {
   isTyping.value = true
   
   try {
-    const response = await fetch('/api/chat', {
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const response = await fetch(`${apiUrl}/api/chat`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userText })
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: userText,
+        session_id: 'demo-session'
+      })
     })
 
     if (!response.ok) {
