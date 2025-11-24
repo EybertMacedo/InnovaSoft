@@ -1,75 +1,32 @@
 <script setup>
-import { ref } from 'vue'
 import { 
-  Terminal, 
-  Cpu, 
-  Globe, 
-  Shield, 
-  Database, 
-  Code2, 
+  MessageSquare, 
+  Eye, 
+  BrainCircuit, 
+  ShieldCheck, 
   BarChart3, 
-  X,
-  ExternalLink
+  Cpu, 
+  Code2,
+  Terminal,
+  X
 } from 'lucide-vue-next'
+import { ref } from 'vue'
 
 const projects = [
-  {
-    title: 'SafetyMind AI',
-    desc: 'Sistema de visión artificial para detección de EPPs en tiempo real en minería.',
-    icon: Shield,
-    status: 'Production',
-    tech: ['YOLOv8', 'Python', 'OpenCV']
-  },
-  {
-    title: 'GeoHousing Data',
-    desc: 'Plataforma de análisis predictivo para el mercado inmobiliario usando Big Data.',
-    icon: Database,
-    status: 'Beta',
-    tech: ['Pandas', 'Scikit-learn', 'Vue.js']
-  },
-  {
-    title: 'InnovaBot RAG',
-    desc: 'Asistente virtual inteligente con memoria contextual para soporte técnico.',
-    icon: Terminal,
-    status: 'Active',
-    tech: ['LangChain', 'OpenAI', 'FastAPI']
-  },
-  {
-    title: 'Industrial IoT Dashboard',
-    desc: 'Monitoreo de sensores industriales con visualización en tiempo real.',
-    icon: BarChart3,
-    status: 'Production',
-    tech: ['MQTT', 'InfluxDB', 'Grafana']
-  },
-  {
-    title: 'Smart Logistics',
-    desc: 'Optimización de rutas de entrega usando algoritmos genéticos.',
-    icon: Globe,
-    status: 'Development',
-    tech: ['Python', 'Google Maps API', 'React']
-  },
-  {
-    title: 'Crypto Sentiment',
-    desc: 'Análisis de sentimiento en redes sociales para predicción de criptomonedas.',
-    icon: Code2,
-    status: 'Research',
-    tech: ['NLP', 'Twitter API', 'TensorFlow']
-  },
-  {
-    title: 'AutoInvoice OCR',
-    desc: 'Automatización de facturas usando OCR y extracción de entidades.',
-    icon: Cpu,
-    status: 'Production',
-    tech: ['Tesseract', 'Spacy', 'Django']
-  }
+  { id: 1, title: 'Auto-WhatsApp Business', desc: 'Bots con Twilio/Node', status: 'Prod', icon: MessageSquare },
+  { id: 2, title: 'Industrial Safety Vision', desc: 'Detección EPPs/Cobbles con YOLOv8', status: 'Prod', icon: Eye },
+  { id: 3, title: 'Behavior AI', desc: 'Detección de anomalías/seguridad', status: 'Dev', icon: BrainCircuit },
+  { id: 4, title: 'Gov-Tech Assistant', desc: 'Clasificación documental con LLMs', status: 'Beta', icon: ShieldCheck },
+  { id: 5, title: 'Predictive Core', desc: 'Dashboard de inventarios', status: 'Prod', icon: BarChart3 },
+  { id: 6, title: 'Unity Industrial Sim', desc: 'Visualización 3D WebGL', status: 'Demo', icon: Cpu },
+  { id: 7, title: 'Smart OCR', desc: 'Extracción de data estructurada', status: 'Dev', icon: Code2 },
 ]
 
 const statusColors = {
-  'Production': 'bg-emerald-100 text-emerald-700 border-emerald-200',
-  'Beta': 'bg-blue-100 text-blue-700 border-blue-200',
-  'Active': 'bg-green-100 text-green-700 border-green-200',
-  'Development': 'bg-amber-100 text-amber-700 border-amber-200',
-  'Research': 'bg-purple-100 text-purple-700 border-purple-200'
+  Prod: 'text-emerald-700 bg-emerald-100/50 border-emerald-200',
+  Dev: 'text-blue-700 bg-blue-100/50 border-blue-200',
+  Beta: 'text-amber-700 bg-amber-100/50 border-amber-200',
+  Demo: 'text-purple-700 bg-purple-100/50 border-purple-200'
 }
 
 const selectedProject = ref(null)
@@ -82,48 +39,31 @@ const selectedProject = ref(null)
         <Terminal class="w-8 h-8 text-zinc-900" />
         Proyectos Destacados
       </h2>
-
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div 
-          v-for="(project, index) in projects" 
-          :key="index"
+          v-for="project in projects" 
+          :key="project.id"
           @click="selectedProject = project"
-          class="group bg-white border border-zinc-200 p-6 hover:border-zinc-400 transition-all duration-300 cursor-pointer hover:shadow-lg relative overflow-hidden rounded-none"
+          class="group relative bg-white/40 backdrop-blur-md border border-white/50 p-6 hover:bg-white/60 transition-all duration-500 hover:shadow-xl hover:border-zinc-400/50 rounded-none cursor-pointer"
         >
-          <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <component :is="project.icon" class="w-24 h-24" />
+          <div class="absolute top-4 right-4">
+            <span 
+              :class="statusColors[project.status] || 'text-zinc-600 bg-zinc-100/50 border-zinc-200'"
+              class="text-xs px-2 py-1 border font-medium rounded-none backdrop-blur-sm"
+            >
+              {{ project.status }}
+            </span>
           </div>
-
-          <div class="relative z-10">
-            <div class="flex justify-between items-start mb-4">
-              <div class="p-3 bg-zinc-50 border border-zinc-100 inline-block">
-                <component :is="project.icon" class="w-6 h-6 text-zinc-700" />
-              </div>
-              <span 
-                :class="statusColors[project.status]"
-                class="text-[10px] uppercase tracking-wider px-2 py-1 border font-bold rounded-none"
-              >
-                {{ project.status }}
-              </span>
-            </div>
-
-            <h3 class="text-lg font-bold text-zinc-900 mb-2 group-hover:text-zinc-600 transition-colors">
-              {{ project.title }}
-            </h3>
-            <p class="text-zinc-500 text-sm mb-6 line-clamp-2">
-              {{ project.desc }}
-            </p>
-
-            <div class="flex flex-wrap gap-2 mt-auto">
-              <span 
-                v-for="tech in project.tech" 
-                :key="tech"
-                class="text-xs text-zinc-500 bg-zinc-100 px-2 py-1 border border-zinc-200 font-medium rounded-none"
-              >
-                {{ tech }}
-              </span>
-            </div>
-          </div>
+          
+          <component :is="project.icon" class="w-10 h-10 text-zinc-400 group-hover:text-zinc-900 transition-colors mb-4" />
+          
+          <h3 class="text-xl font-bold text-zinc-900 mb-2">
+            {{ project.title }}
+          </h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">
+            {{ project.desc }}
+          </p>
         </div>
       </div>
     </div>
