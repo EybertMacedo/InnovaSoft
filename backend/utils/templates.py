@@ -3,7 +3,7 @@ import os
 def get_auto_reply_template(name):
     # Use the public Vercel URL for optimal performance (caching, smaller email size)
     # Ensure the project is deployed to Vercel for this to appear.
-    logo_src = os.getenv("LOGO_URL", "https://innovasoft-landing.vercel.app/logo_white.png")
+    logo_src = os.getenv("LOGO_URL", "https://innovalabs.studio/logo_white.png")
 
     return f"""
     <!DOCTYPE html>

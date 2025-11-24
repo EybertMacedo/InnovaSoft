@@ -53,6 +53,8 @@ const handleContact = async () => {
     isSubmitting.value = false
   }
 }
+const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/EybertMacedo'
+const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/emacedop/'
 </script>
 
 <template>
@@ -87,8 +89,8 @@ const handleContact = async () => {
         </div>
         
         <div class="mt-8 flex gap-4 justify-center md:justify-start">
-          <a href="https://www.linkedin.com/in/emacedop/" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-900 transition-colors duration-300"><Linkedin class="w-5 h-5" /></a>
-          <a href="https://github.com/EybertMacedo" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-900 transition-colors duration-300"><Github class="w-5 h-5" /></a>
+          <a :href="linkedinUrl" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-900 transition-colors duration-300"><Linkedin class="w-5 h-5" /></a>
+          <a :href="githubUrl" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-900 transition-colors duration-300"><Github class="w-5 h-5" /></a>
           <button @click="showContactModal = true" class="text-zinc-400 hover:text-zinc-900 transition-colors duration-300"><Mail class="w-5 h-5" /></button>
         </div>
       </div>

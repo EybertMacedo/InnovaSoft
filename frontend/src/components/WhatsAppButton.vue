@@ -1,10 +1,14 @@
 <script setup>
-import { MessageCircle } from 'lucide-vue-next'
+import { computed } from 'vue'
+
+const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER
+const message = encodeURIComponent('Hola InnovaSoft, me gustaria realizar una consulta')
+const whatsappLink = computed(() => `https://wa.me/${phoneNumber}?text=${message}`)
 </script>
 
 <template>
   <a 
-    href="https://wa.me/+51960208373?text=Hola%20InnovaSoft,%20me%20gustaria%20realizar%20una%20consulta" 
+    :href="whatsappLink" 
     target="_blank" 
     rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
