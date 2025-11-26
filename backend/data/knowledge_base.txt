@@ -12,7 +12,6 @@ Ubicación: Arequipa, Peru
 ---
 EXPERIENCIA PROFESIONAL
 Aquí se detalla la trayectoria laboral completa de Alexis:
-
 1. Data Engineer / Python Developer (Freelance)
    - Periodo: 2024 - Presente
    - Descripción: Desarrollo de soluciones de automatización y procesamiento de datos.
@@ -45,7 +44,6 @@ Aquí se detalla la trayectoria laboral completa de Alexis:
 ---
 PROYECTOS DESTACADOS (DATA SCIENCE & AI)
 Lista de proyectos principales del portafolio:
-
 1. SafetyMind Cobbles (Demo)
    - Estado: Demo (Código Privado)
    - Descripción: Sistema de detección temprana de eventos de cobble (atascamientos) en laminación de acero al rojo vivo. Usa YOLOv8 y visión por computadora.
@@ -94,9 +92,7 @@ Lista de proyectos principales del portafolio:
 
 ---
 EDUCACIÓN Y CERTIFICACIONES
-
 Universidad: Universidad Nacional de San Agustin (Ingeniería de Sistemas)
-
 Certificaciones Principales:
 - IBM Data Science Professional Certificate
 - Google Advanced Data Analytics Certificate
@@ -106,14 +102,12 @@ Certificaciones Principales:
 
 ---
 HABILIDADES TÉCNICAS
-
 Lenguajes: Python (95%), JavaScript (85%), TypeScript (80%), SQL (70%), C# (55%), Go (20%), Bash (55%).
 Frameworks/Librerías: NumPy, Pandas, Scikit-learn, YOLOv8, OpenCV, LangChain, FastAPI, Flask, Node.js, Angular, React, Unity.
 DevOps/Infraestructura: Docker, Nginx, Linux, Azure, DigitalOcean, Vercel.
 
 ---
 DEMOSTRACIONES INTERACTIVAS (DEMO CENTER)
-
 El sitio cuenta con un 'Demo Center' que permite probar las capacidades de IA en tiempo real:
 1. Computer Vision: Detecta objetos en tiempo real usando la cámara del usuario (modelo COCO-SSD).
 2. Chat Assistant: Un chatbot interactivo potenciado por RAG (Retrieval-Augmented Generation) que responde preguntas sobre el portafolio.
