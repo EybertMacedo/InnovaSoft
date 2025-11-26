@@ -1,5 +1,5 @@
 <script setup>
-import { Cpu } from 'lucide-vue-next'
+
 
 defineEmits(['logo-click'])
 </script>
@@ -11,17 +11,17 @@ defineEmits(['logo-click'])
         @click="$emit('logo-click')"
         class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
       >
-        <Cpu class="w-6 h-6 text-zinc-900" />
+        <img src="/innovasoft_logo_icon.png" alt="InnovaSoft Logo" class="h-8 rounded-lg shadow-sm" />
         <span class="font-bold text-xl tracking-tighter text-zinc-900">Innova<span class="text-zinc-500">Soft</span></span>
       </div>
       <div class="hidden md:flex gap-8 text-sm font-medium text-zinc-500">
+        <a href="#experience" class="hover:text-zinc-900 transition-all active:scale-95 transform">Experiencia</a>
         <a href="#projects" class="hover:text-zinc-900 transition-all active:scale-95 transform">Proyectos</a>
-        <a href="#demo" class="hover:text-zinc-900 transition-all active:scale-95 transform">Demo Center</a>
-        <a href="#founder" class="hover:text-zinc-900 transition-all active:scale-95 transform">Fundador</a>
+        <a href="#skills" class="hover:text-zinc-900 transition-all active:scale-95 transform">Habilidades</a>
+        <a href="#education" class="hover:text-zinc-900 transition-all active:scale-95 transform">Educación</a>
+        <a href="#demos" class="hover:text-zinc-900 transition-all active:scale-95 transform">Demo</a>
       </div>
-      <button class="bg-zinc-900 hover:bg-zinc-800 text-white px-5 py-2 text-sm font-medium transition-all rounded-none">
-        Contactar
-      </button>
+      <a href="#contact" class="bg-zinc-900 hover:bg-zinc-800 text-white px-5 py-2 text-sm font-medium transition-all rounded-none">Contactar</a>
     </div>
   </nav>
 </template>

@@ -29,15 +29,24 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/EybertM
     <div class="max-w-7xl mx-auto relative z-10 text-center">
 
       
+      <div class="mb-8 relative inline-block">
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-lg opacity-20 animate-pulse"></div>
+        <img 
+          src="/founder.jpg" 
+          alt="Eybert Alexis Macedo Pillco" 
+          class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl relative z-10"
+        />
+      </div>
+      
       <h1 
         class="text-5xl md:text-7xl font-bold tracking-tight mb-6"
         :class="{ 'glass-text-effect': isShimmering }"
       >
-        Transformación <span class="font-light">sin Fricción</span>
+        Eybert Alexis <span class="font-light">Macedo Pillco</span>
       </h1>
       
       <p class="text-xl text-zinc-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Permita que el Software y la IA se encarguen de la rutina, elimine las tareas repetitivas y recupere tiempo valioso con soluciones inteligentes diseñadas a la medida de su negocio.
+        AI/ML Engineer & Data Scientist. Especializado en transformar operaciones de negocio con Inteligencia Artificial, Computer Vision y LLMs.
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 justify-center">

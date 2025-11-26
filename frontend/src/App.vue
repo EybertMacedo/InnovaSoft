@@ -2,17 +2,25 @@
 import { ref } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
+import Experience from './components/Experience.vue'
 import ProjectsGrid from './components/ProjectsGrid.vue'
+import Skills from './components/Skills.vue'
+import Education from './components/Education.vue'
 import DemoCenter from './components/DemoCenter.vue'
 import FounderProfile from './components/FounderProfile.vue'
 import Footer from './components/Footer.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
 
 const heroRef = ref(null)
+const founderProfileRef = ref(null)
 
 const handleLogoClick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   heroRef.value?.triggerShimmer()
+}
+
+const handleOpenContact = () => {
+  founderProfileRef.value?.openContactModal()
 }
 </script>
 
@@ -26,9 +34,12 @@ const handleLogoClick = () => {
     </div>
     <Navbar @logo-click="handleLogoClick" />
     <Hero ref="heroRef" />
-    <ProjectsGrid />
+    <Experience />
+    <ProjectsGrid @open-contact="handleOpenContact" />
+    <Skills />
+    <Education />
     <DemoCenter />
-    <FounderProfile />
+    <FounderProfile ref="founderProfileRef" />
     <Footer />
     <WhatsAppButton />
   </div>

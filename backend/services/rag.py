@@ -19,7 +19,9 @@ if QDRANT_URL and QDRANT_API_KEY:
 
 # Initialize Local Embedding Model (FastEmbed)
 # This uses ONNX and is much lighter than PyTorch
-embedding_model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
+# Initialize Local Embedding Model (FastEmbed)
+# This uses ONNX and is much lighter than PyTorch
+embedding_model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 
 # Configure Gemini (for Answer Generation only)
 def configure_genai():
@@ -38,20 +40,20 @@ def get_embedding(text: str) -> List[float]:
         print(f"Error getting embedding: {e}")
         raise e
 
-def find_relevant_context(query: str, top_k: int = 3) -> str:
+def find_relevant_context(query: str, top_k: int = 5) -> str:
     if not qdrant:
         return "Error: Qdrant not configured."
 
     try:
         query_vector = get_embedding(query)
         
-        search_result = qdrant.search(
+        search_result = qdrant.query_points(
             collection_name=COLLECTION_NAME,
-            query_vector=query_vector,
+            query=query_vector,
             limit=top_k
-        )
+        ).points
         
-        context_parts = [hit.payload['content'] for hit in search_result]
+        context_parts = [hit.payload['text'] for hit in search_result]
         return "\n\n".join(context_parts)
         
     except Exception as e:
@@ -69,6 +71,11 @@ def generate_answer(query: str) -> str:
     Usa la siguiente información de contexto para responder a la pregunta del usuario.
     Si la respuesta no está en el contexto, di amablemente que no tienes esa información, pero sugiere contactar a Alexis directamente.
     Responde de manera profesional, breve y entusiasta.
+    
+    IMPORTANTE:
+    - Responde SOLO con texto plano.
+    - NO uses formato Markdown (ni negritas **, ni cursivas *, ni listas con guiones - o asteriscos *).
+    - Usa saltos de línea para separar párrafos o ideas.
 
     Contexto:
     {context}
@@ -80,9 +87,15 @@ def generate_answer(query: str) -> str:
     """
 
     try:
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-flash-latest')
         response = model.generate_content(prompt)
-        return response.text
+        
+        # Post-processing to ensure no Markdown remains
+        clean_text = response.text.replace('**', '').replace('__', '')
+        # Remove single asterisks but keep them if they are part of a math equation (unlikely here but safe to just remove for formatting)
+        clean_text = clean_text.replace('* ', '- ').replace('*', '') 
+        
+        return clean_text
     except Exception as e:
         print(f"Error generating answer: {e}")
         raise e
