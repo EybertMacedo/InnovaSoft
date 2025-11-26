@@ -1,0 +1,120 @@
+InnovaSoft es el portafolio profesional y marca personal de Alexis (Eybert Macedo), un Ingeniero de Sistemas y Data Scientist especializado en Inteligencia Artificial, Machine Learning y Desarrollo de Software.
+El sitio web es una Single Page Application (SPA) moderna construida con Vue 3, Tailwind CSS y Python (FastAPI) para el backend.
+
+---
+CONTACTO Y REDES
+Nombre: Alexis (Eybert Macedo)
+LinkedIn: https://www.linkedin.com/in/emacedop/
+GitHub: https://github.com/EybertMacedo
+WhatsApp: +51 969 969 969 (Número de ejemplo, usar el botón del sitio)
+Ubicación: Arequipa, Peru
+
+---
+EXPERIENCIA PROFESIONAL
+Aquí se detalla la trayectoria laboral completa de Alexis:
+
+1. Data Engineer / Python Developer (Freelance)
+   - Periodo: 2024 - Presente
+   - Descripción: Desarrollo de soluciones de automatización y procesamiento de datos.
+   - Logros:
+     * Automatización de procesamiento de facturas con Python y OCR.
+     * Desarrollo de sistemas de parsing y validación de datos no estructurados.
+     * Implementación de pipelines ETL para integración de datos.
+2. Web Developer (Odoo) - Tecnovedades E.I.R.L.
+   - Periodo: 2023 (Freelance)
+   - Descripción: Implementación y personalización de módulos en Odoo.
+   - Logros:
+     * Desarrollo de módulos personalizados para gestión médica.
+     * Implementación de arquitectura MVC en Odoo.
+     * Automatización de flujos de trabajo empresariales.
+3. Machine Learning Engineer - SafetyMind (Startup)
+   - Periodo: 2023 - 2024
+   - Descripción: Lideró el desarrollo de sistemas de visión por computadora para seguridad industrial.
+   - Logros:
+     * Entrenó modelos YOLOv8 con >95% de precisión para detección de EPPs.
+     * Redujo accidentes laborales en un 40% mediante alertas en tiempo real.
+     * Optimizó la inferencia en dispositivos Edge (Jetson Nano).
+4. Full Stack Developer - Ministerio de Vivienda, Construcción y Saneamiento
+   - Periodo: 2022 - 2023
+   - Descripción: Desarrollo de plataformas gubernamentales de alto impacto.
+   - Logros:
+     * Migró sistemas legados a arquitecturas modernas de microservicios.
+     * Implementó dashboards de BI para la toma de decisiones.
+     * Mejoró la velocidad de carga del portal ciudadano en un 60%.
+
+---
+PROYECTOS DESTACADOS (DATA SCIENCE & AI)
+Lista de proyectos principales del portafolio:
+
+1. SafetyMind Cobbles (Demo)
+   - Estado: Demo (Código Privado)
+   - Descripción: Sistema de detección temprana de eventos de cobble (atascamientos) en laminación de acero al rojo vivo. Usa YOLOv8 y visión por computadora.
+   - Tech: Python, YOLOv8, OpenCV.
+   - Link: https://github.com/EybertMacedo/cobbles
+2. SentiData System
+   - Estado: Producción
+   - Descripción: Plataforma de análisis de sentimiento y percepción ciudadana. Procesa grandes volúmenes de texto de redes sociales y encuestas usando NLP y LLMs.
+   - Tech: NLP, Machine Learning, LLMs.
+   - Link: https://sentidata-dashboard.vercel.app/
+3. Poker Hand Classifier
+   - Estado: Investigación
+   - Descripción: Modelo CNN personalizado para clasificación de manos de póker. Artículo publicado en la Revista Innovación y Software (Vol. 5 Nº 1, 2024).
+   - Tech: CNN, Deep Learning, Investigación.
+   - Link: https://revistas.ulasalle.edu.pe/innosoft/article/view/157/206
+4. SafetyModel
+   - Estado: Producción
+   - Descripción: Detección de colisiones en zonas de riesgo con YOLO. Identifica ingreso de personas a zonas peligrosas en tiempo real.
+   - Tech: YOLO, Computer Vision, Seguridad Industrial.
+   - Link: https://github.com/EybertMacedo/SafetyModel/tree/main
+5. InnovaSoft Landing
+   - Estado: Producción
+   - Descripción: Portafolio interactivo con simulaciones de IA. SPA con Vue 3 y Glassmorphism.
+   - Tech: Vue 3, Tailwind CSS, FastAPI.
+   - Link: https://github.com/EybertMacedo/InnovaSoft/
+6. Bank Marketing in R
+   - Estado: Desarrollo
+   - Descripción: Análisis predictivo para campañas de marketing bancario. Identifica factores para la suscripción de depósitos a plazo.
+   - Tech: R, Machine Learning, Análisis Predictivo.
+   - Link: https://github.com/EybertMacedo/bank_marketing_R
+7. Tasty Bytes Predictor
+   - Estado: Data Science
+   - Descripción: Modelo predictivo de tráfico para recetas de cocina. Proyecto de certificación Data Scientist.
+   - Tech: Python, Scikit-learn, Análisis Exploratorio.
+   - Link: https://www.datacamp.com/datalab/w/01330a4f-a78f-42d4-bf32-b902e3da72c9
+8. TikTok Classification
+   - Estado: ML
+   - Descripción: Clasificación automática de videos para moderación (Claims vs Opinions) para reducir desinformación.
+   - Tech: Random Forest, XGBoost, NLP.
+   - Link: https://github.com/EybertMacedo/Google-Data-Science
+9. IBM Data Science Tools
+   - Estado: Educación
+   - Descripción: Notebook demostrativo del ecosistema de Data Science (Jupyter, RStudio, etc.).
+   - Tech: Jupyter, Python, Data Science Tools.
+   - Link: https://github.com/EybertMacedo/IBM-Data-Science
+
+---
+EDUCACIÓN Y CERTIFICACIONES
+
+Universidad: Universidad Nacional de San Agustin (Ingeniería de Sistemas)
+
+Certificaciones Principales:
+- IBM Data Science Professional Certificate
+- Google Advanced Data Analytics Certificate
+- AWS Academy Graduate (Cloud, Machine Learning, Data Center)
+- Certificado de análisis de datos de Google
+- Scrum Foundation Professional Certification (SFPC)
+
+---
+HABILIDADES TÉCNICAS
+
+Lenguajes: Python (95%), JavaScript (85%), TypeScript (80%), SQL (70%), C# (55%), Go (20%), Bash (55%).
+Frameworks/Librerías: NumPy, Pandas, Scikit-learn, YOLOv8, OpenCV, LangChain, FastAPI, Flask, Node.js, Angular, React, Unity.
+DevOps/Infraestructura: Docker, Nginx, Linux, Azure, DigitalOcean, Vercel.
+
+---
+DEMOSTRACIONES INTERACTIVAS (DEMO CENTER)
+
+El sitio cuenta con un 'Demo Center' que permite probar las capacidades de IA en tiempo real:
+1. Computer Vision: Detecta objetos en tiempo real usando la cámara del usuario (modelo COCO-SSD).
+2. Chat Assistant: Un chatbot interactivo potenciado por RAG (Retrieval-Augmented Generation) que responde preguntas sobre el portafolio.
+3. SentiData Live Preview: Una visualización en video del dashboard de SentiData en funcionamiento.
