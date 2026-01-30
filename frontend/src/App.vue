@@ -6,7 +6,7 @@ import Experience from './components/Experience.vue'
 import ProjectsGrid from './components/ProjectsGrid.vue'
 import Skills from './components/Skills.vue'
 import Education from './components/Education.vue'
-import DemoCenter from './components/DemoCenter.vue'
+// import DemoCenter from './components/DemoCenter.vue'
 import FounderProfile from './components/FounderProfile.vue'
 import Footer from './components/Footer.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
@@ -38,7 +38,7 @@ const handleOpenContact = () => {
     <ProjectsGrid @open-contact="handleOpenContact" />
     <Skills />
     <Education />
-    <DemoCenter />
+    <!-- <DemoCenter /> -->
     <FounderProfile ref="founderProfileRef" />
     <Footer />
     <WhatsAppButton />
