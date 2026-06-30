@@ -1,76 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { Briefcase, Calendar, MapPin } from 'lucide-vue-next'
+import experiences from '../data/experience.json'
 
-const experiences = [
-  {
-    role: 'AI Integration Assistant',
-    company: 'Peru Ministry of Housing',
-    location: 'Lima, Peru',
-    period: 'Abril 2025 - Actual',
-    description: 'Diseño e implementación de flujos de trabajo basados en IA para monitorear la percepción pública de proyectos nacionales.',
-    achievements: [
-      'Diseñé flujos de trabajo con PLN, análisis de sentimientos y ML para monitoreo de percepción pública.',
-      'Desarrollé canales de datos escalables y paneles en tiempo real para procesar miles de menciones.',
-      'Implementé infraestructura segura en la nube compatible con estándares gubernamentales.'
-    ],
-    tech: ['Python', 'FastAPI', 'Pandas', 'Docker', 'Supabase', 'LangChain', 'OpenAI', 'Gemini']
-  },
-  {
-    role: 'AI/ML Engineer',
-    company: 'SafetyMind S.A.C.',
-    location: 'Remote',
-    period: 'Setiembre 2024 – Marzo 2025',
-    description: 'Desarrollo de sistemas de seguridad industrial basados en visión artificial.',
-    achievements: [
-      'Diseñé sistemas de seguridad con visión artificial para detectar riesgos en entornos industriales.',
-      'Optimicé modelos de detección (YOLOv8) para rendimiento en tiempo real.',
-      'Desarrollé canales de datos automatizados para identificar patrones de riesgo.'
-    ],
-    tech: ['YOLOv8', 'PyTorch', 'TensorFlow', 'OpenCV', 'Qdrant', 'Docker', 'MLOps']
-  },
-  {
-    role: 'Investigador Principal',
-    company: 'UNSA - Investigación sobre Inteligencia Artificial',
-    location: 'Arequipa, Perú',
-    period: 'Enero 2024 – Julio 2024',
-    description: 'Liderazgo de proyecto de investigación para clasificación de manos de póker con IA.',
-    achievements: [
-      'Lideré un equipo para desarrollar un modelo de IA para clasificación de manos de póker.',
-      'Abordé desequilibrio de clases severo y optimicé ingeniería de características.',
-      'Dirigí diseño, entrenamiento y estrategias de optimización logrando mejoras significativas en precisión.'
-    ],
-    tech: ['Python', 'TensorFlow', 'Scikit-learn', 'Pandas', 'NumPy', 'OpenCV', 'Git']
-  },
-  {
-    role: 'Data Engineer / Python Developer',
-    company: 'FreeLancer',
-    location: 'Remote',
-    period: '2024',
-    description: 'Automatización del procesamiento de facturas de profesores a partir de archivos .lis.',
-    achievements: [
-      'Construí un sistema en Python para leer, limpiar y transformar archivos .lis en estructuras tabulares analizables.',
-      'Implementé extracción automática de códigos, nombres y montos mediante parsing línea por línea.',
-      'Diseñé un pipeline de validación y normalización de datos para integrarlos en un DataFrame final.',
-      'Aceleré el flujo de trabajo administrativo reduciendo el tiempo manual de procesamiento.'
-    ],
-    tech: ['Python', 'Pandas', 'Regex', 'Data Cleaning', 'ETL']
-  },
-  {
-    role: 'Web Developer (Odoo)',
-    company: 'Tecnovedades E.I.R.L. — Freelance',
-    location: 'Remote',
-    period: '2023',
-    description: 'Desarrollo de un aplicativo médico sobre la plataforma Odoo.',
-    achievements: [
-      'Implementé módulos personalizados en Odoo para gestionar historias clínicas, agenda médica y control de pacientes.',
-      'Desarrollé vistas, modelos y controladores usando el framework MVC de Odoo.',
-      'Integré flujos automatizados para registro de consultas, emisión de reportes y administración de usuarios.',
-      'Optimicé el rendimiento del backend y personalicé la UI mediante XML, JavaScript y QWeb.'
-    ],
-    tech: ['Odoo', 'Python', 'PostgreSQL', 'XML/QWeb', 'JavaScript', 'Odoo ORM']
-  }
-]
+
 
 const visibleItems = ref(new Set())
 

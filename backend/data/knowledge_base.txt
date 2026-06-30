@@ -12,28 +12,34 @@ Ubicación: Arequipa, Peru
 ---
 EXPERIENCIA PROFESIONAL
 Aquí se detalla la trayectoria laboral completa de Alexis:
-1. Data Engineer / Python Developer (Freelance)
+1. AI training specialist - Revelo
+   - Periodo: Diciembre 2025 - Presente
+   - Descripción: Evaluar y perfeccionar soluciones de software complejas generadas por modelos SOTA de Anthropic entre otros para la resolución efectiva de problemas en repositorios Python auténticos.
+   - Logros:
+     * Proporcionar retroalimentación técnica precisa para guiar la implementación iterativa del modelo.
+     * Identificación y auditoría de vulnerabilidades y refinamiento iterativo de arquitectura.
+2. Data Engineer / Python Developer (Freelance)
    - Periodo: 2024 - Presente
    - Descripción: Desarrollo de soluciones de automatización y procesamiento de datos.
    - Logros:
      * Automatización de procesamiento de facturas con Python y OCR.
      * Desarrollo de sistemas de parsing y validación de datos no estructurados.
      * Implementación de pipelines ETL para integración de datos.
-2. Web Developer (Odoo) - Tecnovedades E.I.R.L.
+3. Web Developer (Odoo) - Tecnovedades E.I.R.L.
    - Periodo: 2023 (Freelance)
    - Descripción: Implementación y personalización de módulos en Odoo.
    - Logros:
      * Desarrollo de módulos personalizados para gestión médica.
      * Implementación de arquitectura MVC en Odoo.
      * Automatización de flujos de trabajo empresariales.
-3. Machine Learning Engineer - SafetyMind (Startup)
+4. Machine Learning Engineer - SafetyMind (Startup)
    - Periodo: 2023 - 2024
    - Descripción: Lideró el desarrollo de sistemas de visión por computadora para seguridad industrial.
    - Logros:
      * Entrenó modelos YOLOv8 con >95% de precisión para detección de EPPs.
      * Redujo accidentes laborales en un 40% mediante alertas en tiempo real.
      * Optimizó la inferencia en dispositivos Edge (Jetson Nano).
-4. Full Stack Developer - Ministerio de Vivienda, Construcción y Saneamiento
+5. Full Stack Developer - Ministerio de Vivienda, Construcción y Saneamiento
    - Periodo: 2022 - 2023
    - Descripción: Desarrollo de plataformas gubernamentales de alto impacto.
    - Logros:

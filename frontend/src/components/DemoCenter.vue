@@ -16,15 +16,6 @@ import {
 // Computer Vision Models
 const models = [
   {
-    id: 'bar_jam',
-    name: 'Steel Bar Jam',
-    description: 'Identifica pausas de producción y atasco de material.',
-    icon: AlertTriangle,
-    color: 'text-amber-500',
-    video: '/demos/cobbles_output.mp4',
-    stats: { accuracy: '93.2%', latency: '12ms', fps: '60' }
-  },
-  {
     id: 'safety',
     name: 'Danger Zone',
     description: 'Monitorea áreas restringidas y detecta personal no autorizado.',
@@ -32,6 +23,15 @@ const models = [
     color: 'text-red-500',
     video: '/demos/risk_output.mp4',
     stats: { accuracy: '90.8%', latency: '18ms', fps: '58' }
+  },
+  {
+    id: 'bar_jam',
+    name: 'Steel Bar Jam',
+    description: 'Identifica pausas de producción y atasco de material.',
+    icon: AlertTriangle,
+    color: 'text-amber-500',
+    video: '/demos/cobbles_output.mp4',
+    stats: { accuracy: '93.2%', latency: '12ms', fps: '60' }
   },
   {
     id: 'ppe',

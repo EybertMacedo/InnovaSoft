@@ -1,0 +1,309 @@
+{
+  "education": [
+    {
+      "school": "Universidad Nacional de San Agustin",
+      "degree": "Ingeniería de Sistemas",
+      "location": "Arequipa, Peru",
+      "type": "university",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Escudo_UNSA.png/500px-Escudo_UNSA.png"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Certificado Profesional de Ciencia de Datos",
+      "issuer": "DataCamp",
+      "credlyUrl": "https://www.datacamp.com/certificate/DS0028995328252",
+      "skills": [
+        "NumPy",
+        "Pandas",
+        "Python",
+        "SciPy",
+        "Scikit-learn",
+        "Matplotlib",
+        "Seaborn",
+        "SQL"
+      ]
+    },
+    {
+      "name": "Data Analysis with Python",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/0541ca92-2beb-40c0-9418-d477bbf6a50a/public_url",
+      "skills": [
+        "NumPy",
+        "Pandas",
+        "Python",
+        "SciPy",
+        "Scikit-learn"
+      ]
+    },
+    {
+      "name": "Data Visualization with Python",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/d4166aa6-f2c3-4284-ad3e-bf5caed01c83/public_url",
+      "skills": [
+        "Matplotlib",
+        "NumPy",
+        "Python",
+        "Seaborn",
+        "Folium"
+      ]
+    },
+    {
+      "name": "Machine Learning with Python",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/dc78aa68-259c-4509-b2f0-a7c6cbdca947/public_url",
+      "skills": [
+        "Data Science",
+        "Recommender Systems",
+        "SciPy",
+        "Classification",
+        "Clustering",
+        "Machine Learning",
+        "Regression",
+        "Scikit-learn"
+      ]
+    },
+    {
+      "name": "Applied Data Science Specialization (V2)",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/f502118c-cf93-4377-8d57-fde9f0d5d74e/public_url",
+      "skills": [
+        "Data Analysis",
+        "Data Science",
+        "Matplotlib",
+        "NumPy",
+        "Pandas",
+        "Python",
+        "SciPy",
+        "Seaborn",
+        "Scikit-learn"
+      ]
+    },
+    {
+      "name": "IBM Data Science Professional Certificate",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/f7bf39a8-30a1-46a7-ad2e-99f57d6b664f/public_url",
+      "skills": [
+        "Data Science",
+        "Machine Learning",
+        "Python",
+        "SQL",
+        "Data Analysis",
+        "Data Visualization",
+        "Big Data"
+      ]
+    },
+    {
+      "name": "Applied Data Science Capstone",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/123812d7-a383-4cde-89e4-96784d2fd7dc/public_url",
+      "skills": [
+        "Data Collection",
+        "Data Science",
+        "Data Visualization",
+        "Data Wrangling",
+        "Exploratory Data Analysis"
+      ]
+    },
+    {
+      "name": "Google Advanced Data Analytics Certificate",
+      "issuer": "Google Cloud",
+      "credlyUrl": "https://www.credly.com/badges/9e347752-3f34-4280-96a8-71bb08baeb8d/public_url",
+      "skills": [
+        "Data Analysis",
+        "Data Science",
+        "Python",
+        "Statistical Analysis",
+        "Tableau",
+        "Machine Learning",
+        "Predictive Models"
+      ]
+    },
+    {
+      "name": "Google Cloud Computing Foundations Certificate",
+      "issuer": "Google Cloud",
+      "credlyUrl": "https://www.credly.com/badges/23d15c41-cb0b-49cc-9300-6d59096da00b/public_url",
+      "skills": [
+        "BigQuery",
+        "Cloud Computing",
+        "Cloud Infrastructure",
+        "Cloud Storage",
+        "Compute Engine",
+        "IAM",
+        "Network Security"
+      ]
+    },
+    {
+      "name": "Certificado de análisis de datos de Google",
+      "issuer": "Google Cloud",
+      "credlyUrl": "https://www.credly.com/badges/9b6e594e-124d-4157-82a7-ea66b71260a7/public_url",
+      "skills": [
+        "Análisis De Datos",
+        "SQL",
+        "Visualización de Datos",
+        "Limpieza de datos",
+        "R",
+        "Tableau"
+      ]
+    },
+    {
+      "name": "AWS Academy Graduate - Data Center Technician",
+      "issuer": "Amazon Web Services",
+      "credlyUrl": "https://www.credly.com/badges/ef8438c2-cec7-4af1-9c05-2af17922cf62/public_url",
+      "skills": [
+        "Data Center Operations",
+        "Hardware Fundamentals",
+        "Networking Fundamentals",
+        "Operating System Fundamentals"
+      ]
+    },
+    {
+      "name": "AWS Academy Graduate - Introduction to Cloud ",
+      "issuer": "Amazon Web Services",
+      "credlyUrl": "https://www.credly.com/badges/57e580f1-6417-462a-8235-0c2c0ec7d0b3/public_url",
+      "skills": [
+        "AWS Architecture",
+        "AWS Cloud",
+        "AWS Core",
+        "AWS Foundations",
+        "AWS Pricing",
+        "AWS Support"
+      ]
+    },
+    {
+      "name": "AWS Academy Graduate - Engineering Operations Technicians",
+      "issuer": "Amazon Web Services",
+      "credlyUrl": "https://www.credly.com/badges/4a4bcbdc-8003-40d6-8205-7a81cc8f2827/public_url",
+      "skills": [
+        "Data Centers",
+        "Data Center Efficiency",
+        "Physical Infrastructure",
+        "Cooling",
+        "Electrical Fundamentals"
+      ]
+    },
+    {
+      "name": "AWS Educate Introduction to Generative AI",
+      "issuer": "Amazon Web Services",
+      "credlyUrl": "https://www.credly.com/badges/da85d94c-d92a-49d0-9a02-716aa3ab0d0c/public_url",
+      "skills": [
+        "AWS",
+        "AI",
+        "Generative AI",
+        "Machine Learning",
+        "AWS Cloud"
+      ]
+    },
+    {
+      "name": "AWS Educate Machine Learning Foundations",
+      "issuer": "Amazon Web Services",
+      "credlyUrl": "https://www.credly.com/badges/64942342-52f7-47b7-b698-1c94da429595/public_url",
+      "skills": [
+        "AWS",
+        "AWS Cloud",
+        "Machine Learning",
+        "Artificial Intelligence"
+      ]
+    },
+    {
+      "name": "Data Science Orientation",
+      "issuer": "Coursera",
+      "credlyUrl": "https://www.credly.com/badges/a602949f-982d-40aa-863b-63e1c1b24f51/public_url",
+      "skills": [
+        "Data Science",
+        "AI",
+        "Artificial Intelligence",
+        "Machine Learning"
+      ]
+    },
+    {
+      "name": "Tools for Data Science",
+      "issuer": "Coursera",
+      "credlyUrl": "https://www.credly.com/badges/c8bdbc89-96f9-47e4-a6a8-166ed153a581/public_url",
+      "skills": [
+        "Jupyter Notebook",
+        "Data Science Tools",
+        "GitHub",
+        "RStudio",
+        "Watson Studio"
+      ]
+    },
+    {
+      "name": "Data Science Methodology",
+      "issuer": "Coursera",
+      "credlyUrl": "https://www.credly.com/badges/bba7d2b5-b464-4a1c-9141-f75afd897a89/public_url",
+      "skills": [
+        "Data Science Methodology",
+        "Jupyter Notebook",
+        "Problem Solving"
+      ]
+    },
+    {
+      "name": "Python for Data Science and AI",
+      "issuer": "Coursera",
+      "credlyUrl": "https://www.credly.com/badges/242c4803-2e0b-4874-bb88-1af68caf1696/public_url",
+      "skills": [
+        "Python",
+        "Data Science",
+        "AI",
+        "Pandas",
+        "Numpy"
+      ]
+    },
+    {
+      "name": "Python Project for Data Science",
+      "issuer": "Coursera",
+      "credlyUrl": "https://www.credly.com/badges/37834214-2d0e-426e-bc13-1a82540e2d86/public_url",
+      "skills": [
+        "Data Science",
+        "Python",
+        "Artificial Intelligence",
+        "Project Management"
+      ]
+    },
+    {
+      "name": "Databases and SQL for Data Science",
+      "issuer": "IBM",
+      "credlyUrl": "https://www.credly.com/badges/64ceeb50-e74a-4665-88d3-ac80dd889ca1/public_url",
+      "skills": [
+        "Data Science",
+        "SQL",
+        "Relational Databases",
+        "Python",
+        "Jupyter Notebook"
+      ]
+    },
+    {
+      "name": "Software Engineering Essentials",
+      "issuer": "Coursera",
+      "credlyUrl": "https://www.credly.com/badges/2a0040b3-21d9-4c64-8ef2-db204964af68/public_url",
+      "skills": [
+        "Software Engineering",
+        "SDLC",
+        "Software Architecture",
+        "Agile"
+      ]
+    },
+    {
+      "name": "Business Intelligence Foundation Professional Certification - BIFPC™",
+      "issuer": "Certiprof",
+      "credlyUrl": "https://www.credly.com/badges/81089083-80a9-4568-a5a3-4936cc33a545/public_url",
+      "skills": [
+        "Business Intelligence",
+        "Data Analysis",
+        "Data Mining"
+      ]
+    },
+    {
+      "name": "Scrum Foundation Professional Certification - SFPC™",
+      "issuer": "Certiprof",
+      "credlyUrl": "https://www.credly.com/badges/9bed095f-20ed-4f81-a69d-d9ab6b043192/public_url",
+      "skills": [
+        "Scrum",
+        "Agile",
+        "Project Management",
+        "Scrum Master"
+      ]
+    }
+  ]
+}

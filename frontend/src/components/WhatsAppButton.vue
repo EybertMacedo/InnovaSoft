@@ -1,7 +1,8 @@
 <script setup>
 import { computed } from 'vue'
 
-const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER
+const rawPhoneNumber = String(import.meta.env.VITE_WHATSAPP_NUMBER || '51960208373')
+const phoneNumber = rawPhoneNumber.replace(/\D/g, '')
 const message = encodeURIComponent('Hola InnovaSoft, me gustaria realizar una consulta')
 const whatsappLink = computed(() => `https://wa.me/${phoneNumber}?text=${message}`)
 </script>

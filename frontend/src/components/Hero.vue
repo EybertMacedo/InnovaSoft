@@ -1,6 +1,6 @@
 <script setup>
 import { ref, nextTick, onMounted } from 'vue'
-import { ChevronRight, Github } from 'lucide-vue-next'
+import { ChevronRight, Github, Linkedin } from 'lucide-vue-next'
 
 const isShimmering = ref(false)
 
@@ -22,6 +22,7 @@ onMounted(() => {
 
 defineExpose({ triggerShimmer })
 const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/EybertMacedo'
+const linkedinUrl = 'https://www.linkedin.com/in/emacedop/'
 </script>
 
 <template>
@@ -65,6 +66,15 @@ const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/EybertM
         >
           <Github class="w-4 h-4" />
           Ver Código
+        </a>
+        <a 
+          :href="linkedinUrl" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 bg-white hover:bg-zinc-50 text-zinc-900 px-8 py-3 font-medium border border-zinc-200 transition-all duration-300 hover:shadow-md rounded-none"
+        >
+          <Linkedin class="w-4 h-4" />
+          LinkedIn
         </a>
       </div>
     </div>
