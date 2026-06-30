@@ -71,9 +71,7 @@ def debug_retrieval(query):
         traceback.print_exc()
 
 if __name__ == "__main__":
-    print("\n=== Test 1: 'experiencia profesional' ===")
-    debug_retrieval("experiencia profesional")
-    print("\n=== Test 2: 'trabajos anteriores' ===")
-    debug_retrieval("trabajos anteriores")
-    print("\n=== Test 3: 'Data Engineer' ===")
-    debug_retrieval("Data Engineer")
+    print("\n=== Test 1: 'Que proyectos hizo alexis?' ===")
+    debug_retrieval("Que proyectos hizo alexis?")
+    print("\n=== Test 2: 'cuales son tus proyectos' ===")
+    debug_retrieval("cuales son tus proyectos")

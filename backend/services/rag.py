@@ -1,8 +1,8 @@
 import os
-import google.generativeai as genai
 from typing import List, Dict
 from qdrant_client import QdrantClient
 from fastembed import TextEmbedding
+from groq import Groq
 
 # Configure Clients
 QDRANT_URL = os.getenv("QDRANT_ENDPOINT")
@@ -19,18 +19,15 @@ if QDRANT_URL and QDRANT_API_KEY:
 
 # Initialize Local Embedding Model (FastEmbed)
 # This uses ONNX and is much lighter than PyTorch
-# Initialize Local Embedding Model (FastEmbed)
-# This uses ONNX and is much lighter than PyTorch
 embedding_model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 
-# Configure Gemini (for Answer Generation only)
-def configure_genai():
-    api_key = os.getenv("GEMINI_API_KEY")
+# Configure Groq (for Answer Generation only)
+def get_groq_client():
+    api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
-        print("Warning: GEMINI_API_KEY not set")
-        return False
-    genai.configure(api_key=api_key)
-    return True
+        print("Warning: GROQ_API_KEY not set")
+        return None
+    return Groq(api_key=api_key)
 
 def get_embedding(text: str) -> List[float]:
     try:
@@ -41,61 +38,65 @@ def get_embedding(text: str) -> List[float]:
         raise e
 
 def find_relevant_context(query: str, top_k: int = 5) -> str:
-    if not qdrant:
-        return "Error: Qdrant not configured."
-
+    # Instead of using Qdrant which is failing, just read the knowledge base directly
+    # since it's a small file and fits well within the 8K context window of Llama 3
     try:
-        query_vector = get_embedding(query)
-        
-        search_result = qdrant.query_points(
-            collection_name=COLLECTION_NAME,
-            query=query_vector,
-            limit=top_k
-        ).points
-        
-        context_parts = [hit.payload['text'] for hit in search_result]
-        return "\n\n".join(context_parts)
-        
+        data_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'knowledge_base.txt')
+        with open(data_path, 'r', encoding='utf-8') as f:
+            return f.read()
     except Exception as e:
-        print(f"Search failed: {e}")
+        print(f"Error reading knowledge base: {e}")
         return ""
 
 def generate_answer(query: str) -> str:
-    if not configure_genai():
-        return "Lo siento, no puedo responder en este momento (Falta configuración de API)."
+    groq_client = get_groq_client()
+    if not groq_client:
+        return "Lo siento, no puedo responder en este momento (Falta configuración de API de Groq)."
 
     context = find_relevant_context(query)
     
     prompt = f"""
-    Eres el asistente virtual del portafolio de Alexis (InnovaSoft).
-    Usa la siguiente información de contexto para responder a la pregunta del usuario.
-    Si la respuesta no está en el contexto, di amablemente que no tienes esa información, pero sugiere contactar a Alexis directamente.
-    Responde de manera profesional, breve y entusiasta.
+    Eres el asistente virtual oficial de InnovaSoft, la agencia de Eybert Alexis.
+    Tu objetivo es responder a los usuarios de manera conversacional, muy breve y natural, como si estuvieras chateando.
     
-    IMPORTANTE:
-    - Responde SOLO con texto plano.
-    - NO uses formato Markdown (ni negritas **, ni cursivas *, ni listas con guiones - o asteriscos *).
-    - Usa saltos de línea para separar párrafos o ideas.
+    REGLAS ESTRICTAS:
+    1. Háblale al usuario directamente de forma concisa y amigable (MÁXIMO 1 o 2 párrafos cortos). NO des explicaciones enciclopédicas ni teóricas (ej. no expliques qué es PPE o qué es Machine Learning en general).
+    2. Usa la información del contexto para responder. Si te preguntan por un proyecto (ej. PPE), habla en primera persona del plural ("Nosotros desarrollamos", "En InnovaSoft creamos...") y menciona qué hicimos exactamente nosotros en ese proyecto.
+    3. Si la respuesta no está en el contexto, di amablemente que no tienes esa información y sugiere contactar a Alexis directamente.
+    4. Responde SOLO con texto plano. NO uses formato Markdown (ni negritas **, ni cursivas *, ni listas con guiones - o asteriscos *).
+    5. Si te piden un enlace, link, URL o sitio web de algún proyecto, búscalo en el contexto y entrégaselo directamente sin excusas.
 
-    Contexto:
+    Contexto sobre nuestros proyectos y experiencia:
     {context}
-
-    Pregunta:
-    {query}
-
-    Respuesta:
     """
 
     try:
-        model = genai.GenerativeModel('gemini-flash-latest')
-        response = model.generate_content(prompt)
+        chat_completion = groq_client.chat.completions.create(
+            messages=[
+                {
+                    "role": "system",
+                    "content": prompt,
+                },
+                {
+                    "role": "user",
+                    "content": query,
+                }
+            ],
+            model="llama-3.1-8b-instant",
+            temperature=0.5,
+            max_tokens=512,
+        )
+        
+        response_text = chat_completion.choices[0].message.content
         
         # Post-processing to ensure no Markdown remains
-        clean_text = response.text.replace('**', '').replace('__', '')
+        clean_text = response_text.replace('**', '').replace('__', '')
         # Remove single asterisks but keep them if they are part of a math equation (unlikely here but safe to just remove for formatting)
         clean_text = clean_text.replace('* ', '- ').replace('*', '') 
         
         return clean_text
     except Exception as e:
         print(f"Error generating answer: {e}")
-        raise e
+        if "429" in str(e):
+            return "Lo siento, en este momento estoy recibiendo muchas consultas (límite de cuota excedido). Por favor, intenta de nuevo más tarde o contáctanos a través del formulario."
+        return "Lo siento, ha ocurrido un error al procesar tu solicitud. Por favor intenta nuevamente."

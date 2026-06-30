@@ -1,5 +1,10 @@
 <script setup>
-
+defineProps({
+  hideDemos: {
+    type: Boolean,
+    default: false
+  }
+})
 
 defineEmits(['logo-click'])
 </script>
@@ -19,7 +24,7 @@ defineEmits(['logo-click'])
         <a href="#projects" class="hover:text-zinc-900 transition-all active:scale-95 transform">Proyectos</a>
         <a href="#skills" class="hover:text-zinc-900 transition-all active:scale-95 transform">Habilidades</a>
         <a href="#education" class="hover:text-zinc-900 transition-all active:scale-95 transform">Educación</a>
-        <!-- <a href="#demos" class="hover:text-zinc-900 transition-all active:scale-95 transform">Demo</a> -->
+        <a v-if="!hideDemos" href="#demos" class="hover:text-zinc-900 transition-all active:scale-95 transform">Demo</a>
       </div>
       <a href="#contact" class="bg-zinc-900 hover:bg-zinc-800 text-white px-5 py-2 text-sm font-medium transition-all rounded-none">Contactar</a>
     </div>

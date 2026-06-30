@@ -1,18 +1,31 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
 import Experience from './components/Experience.vue'
 import ProjectsGrid from './components/ProjectsGrid.vue'
 import Skills from './components/Skills.vue'
 import Education from './components/Education.vue'
-// import DemoCenter from './components/DemoCenter.vue'
+import DemoCenter from './components/DemoCenter.vue'
 import FounderProfile from './components/FounderProfile.vue'
 import Footer from './components/Footer.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
 
 const heroRef = ref(null)
 const founderProfileRef = ref(null)
+const isDemoBlocked = ref(false)
+
+onMounted(async () => {
+  try {
+    const res = await fetch('https://get.geojs.io/v1/ip/country.json')
+    const data = await res.json()
+    if (data.country === 'CL') {
+      isDemoBlocked.value = true
+    }
+  } catch (e) {
+    console.error('GeoIP error:', e)
+  }
+})
 
 const handleLogoClick = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -32,13 +45,13 @@ const handleOpenContact = () => {
       <div class="absolute top-[-10%] right-[-20%] w-[60%] h-[60%] rounded-full bg-purple-400/20 blur-[120px] animate-blob animation-delay-2000 mix-blend-multiply"></div>
       <div class="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] rounded-full bg-indigo-400/20 blur-[120px] animate-blob animation-delay-4000 mix-blend-multiply"></div>
     </div>
-    <Navbar @logo-click="handleLogoClick" />
+    <Navbar @logo-click="handleLogoClick" :hide-demos="isDemoBlocked" />
     <Hero ref="heroRef" />
     <Experience />
     <ProjectsGrid @open-contact="handleOpenContact" />
     <Skills />
     <Education />
-    <!-- <DemoCenter /> -->
+    <DemoCenter v-if="!isDemoBlocked" />
     <FounderProfile ref="founderProfileRef" />
     <Footer />
     <WhatsAppButton />

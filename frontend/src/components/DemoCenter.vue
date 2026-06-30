@@ -47,6 +47,7 @@ const models = [
 const selectedModel = ref(models[0])
 const isPlaying = ref(false)
 const videoRef = ref(null)
+const videoBgRef = ref(null)
 const sectionRef = ref(null)
 const confidence = ref(0)
 const processing = ref(true)
@@ -72,8 +73,10 @@ watch(selectedModel, async () => {
   await nextTick()
   if (videoRef.value) {
     videoRef.value.load()
+    if (videoBgRef.value) videoBgRef.value.load()
     if (isPlaying.value) {
       videoRef.value.play().catch(e => console.error("Autoplay failed:", e))
+      if (videoBgRef.value) videoBgRef.value.play().catch(e => console.error("Autoplay failed:", e))
     }
   }
 })
@@ -82,8 +85,10 @@ const togglePlay = () => {
   if (videoRef.value) {
     if (isPlaying.value) {
       videoRef.value.pause()
+      if (videoBgRef.value) videoBgRef.value.pause()
     } else {
       videoRef.value.play()
+      if (videoBgRef.value) videoBgRef.value.play()
     }
     isPlaying.value = !isPlaying.value
   }
@@ -176,9 +181,11 @@ onMounted(() => {
           // Start video playback
           if (videoRef.value) {
             videoRef.value.muted = true
+            if (videoBgRef.value) videoBgRef.value.muted = true
             videoRef.value.play()
               .then(() => {
                 isPlaying.value = true
+                if (videoBgRef.value) videoBgRef.value.play().catch(e => console.error('Autoplay bg failed:', e))
               })
               .catch(e => console.error('Autoplay failed:', e))
           }
@@ -270,11 +277,22 @@ onUnmounted(() => {
 
         <!-- Main Viewport -->
         <div class="lg:col-span-9 relative rounded-2xl overflow-hidden bg-black border border-zinc-800 shadow-2xl group">
-          <!-- Video Player -->
+          <!-- Blurred Background Video -->
+          <video
+            ref="videoBgRef"
+            :src="selectedModel.video"
+            class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-50 transform scale-110"
+            loop
+            muted
+            autoplay
+            playsinline
+          ></video>
+
+          <!-- Foreground Video Player -->
           <video
             ref="videoRef"
             :src="selectedModel.video"
-            class="w-full h-full object-cover opacity-80"
+            class="w-full h-full object-contain opacity-80 relative z-10"
             loop
             muted
             autoplay
@@ -390,10 +408,21 @@ onUnmounted(() => {
           </div>
           <div class="bg-zinc-900/40 backdrop-blur-xl border border-white/5 rounded-2xl overflow-hidden relative h-[500px] shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 group">
           <!-- Full Video Background -->
-          <div class="absolute inset-0">
+          <div class="absolute inset-0 bg-black">
+            <!-- Blurred Background -->
             <video 
               src="/demos/sentidata_preview.mp4" 
-              class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+              class="absolute inset-0 w-full h-full object-cover blur-3xl opacity-40 transform scale-110"
+              autoplay 
+              loop 
+              muted 
+              playsinline
+            ></video>
+
+            <!-- Foreground Video -->
+            <video 
+              src="/demos/sentidata_preview.mp4" 
+              class="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 relative z-10"
               autoplay 
               loop 
               muted 
@@ -401,11 +430,11 @@ onUnmounted(() => {
             ></video>
             
             <!-- Cinematic Gradient Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/50 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-zinc-950 via-zinc-900/60 to-transparent z-20 pointer-events-none"></div>
           </div>
 
           <!-- Content Overlay -->
-          <div class="absolute bottom-0 left-0 right-0 p-8 z-10">
+          <div class="absolute bottom-0 left-0 right-0 p-8 z-30">
             <div class="flex items-end justify-between gap-4">
               <div>
                 <h3 class="text-2xl font-bold text-white mb-2 flex items-center gap-3">

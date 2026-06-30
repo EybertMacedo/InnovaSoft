@@ -6,7 +6,7 @@ CONTACTO Y REDES
 Nombre: Alexis (Eybert Macedo)
 LinkedIn: https://www.linkedin.com/in/emacedop/
 GitHub: https://github.com/EybertMacedo
-WhatsApp: +51 969 969 969 (Número de ejemplo, usar el botón del sitio)
+WhatsApp: +51 94729946
 Ubicación: Arequipa, Peru
 
 ---
@@ -92,7 +92,7 @@ Lista de proyectos principales del portafolio:
 
 ---
 EDUCACIÓN Y CERTIFICACIONES
-Universidad: Universidad Nacional de San Agustin (Ingeniería de Sistemas)
+Universidad: Universidad Nacional de San Agustin (Bachiller en Ingeniería de Sistemas)
 Certificaciones Principales:
 - IBM Data Science Professional Certificate
 - Google Advanced Data Analytics Certificate
