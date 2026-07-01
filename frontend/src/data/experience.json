@@ -4,7 +4,7 @@
     "company": "Revelo Corp",
     "location": "Remoto",
     "period": "Diciembre 2025 - Actual",
-    "description": "Evalué y perfeccioné soluciones de software complejas generadas por modelos SOTA de Anthropic, Supernova entre otros para la resolución efectiva de problemas en repositorios Python auténticos.",
+    "description": "Evalué y perfeccioné soluciones de software complejas generadas por modelos SOTA, entre ellos, Anthropic para la resolución efectiva de problemas en repositorios Python auténticos.",
     "achievements": [
       "Proporcioné retroalimentación técnica precisa para guiar la implementación iterativa de modelos avanzados de IA.",
       "Identifiqué y audité vulnerabilidades de Amazon Nova AI encontradas por agentes de IA de equipos como jaylbreak, lionxa, pr1smcode, purcl y seclab",
@@ -24,7 +24,7 @@
   },
   {
     "role": "AI Integration Assistant",
-    "company": "Peru Ministry of Housing",
+    "company": "Tuconsultores - Ministerio de Vivienda, Construcción y Saneamiento del Perú",
     "location": "Lima, Peru",
     "period": "Abril 2025 - Diciembre 2025",
     "description": "Diseño e implementación de flujos de trabajo basados en IA para monitorear la percepción pública de proyectos nacionales.",

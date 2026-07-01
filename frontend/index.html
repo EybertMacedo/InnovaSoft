@@ -1,15 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="/logo_white.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>InnovaSoft</title>
+  <style>
+    .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
+    #goog-gt-tt { display: none !important; }
+    body { top: 0 !important; }
+  </style>
 </head>
 
 <body>
+  <!-- Hidden Google Translate Element -->
+  <div id="google_translate_element" style="display: none;"></div>
+  
   <div id="app"></div>
+  
+  <script type="text/javascript">
+    // Auto-detect language and set Google Translate cookie
+    (function() {
+      const userLang = navigator.language || navigator.userLanguage;
+      const baseLang = userLang.split('-')[0];
+      
+      // If user language is not Spanish, attempt to translate to their language (or default to English)
+      if (baseLang !== 'es') {
+        const targetLang = baseLang === 'en' ? 'en' : baseLang; 
+        document.cookie = `googtrans=/es/${targetLang}; path=/`;
+      } else {
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }
+    })();
+
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script type="module" src="/src/main.js"></script>
 </body>
 

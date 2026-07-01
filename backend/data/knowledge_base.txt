@@ -14,7 +14,7 @@ EXPERIENCIA PROFESIONAL
 Aquí se detalla la trayectoria laboral completa de Alexis:
 1. AI training specialist - Revelo
    - Periodo: Diciembre 2025 - Presente
-   - Descripción: Evaluar y perfeccionar soluciones de software complejas generadas por modelos SOTA de Anthropic entre otros para la resolución efectiva de problemas en repositorios Python auténticos.
+   - Descripción: Evaluar y perfeccionar soluciones de software complejas generadas por modelos SOTA de IA para la resolución efectiva de problemas en repositorios Python auténticos.
    - Logros:
      * Proporcionar retroalimentación técnica precisa para guiar la implementación iterativa del modelo.
      * Identificación y auditoría de vulnerabilidades y refinamiento iterativo de arquitectura.
