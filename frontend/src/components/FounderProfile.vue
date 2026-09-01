@@ -14,7 +14,7 @@ const isSubmitting = ref(false)
 const handleContact = async () => {
   isSubmitting.value = true
   try {
-    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const apiUrl = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
     const response = await fetch(`${apiUrl}/api/contact`, {
       method: 'POST',
       headers: {

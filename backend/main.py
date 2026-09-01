@@ -3,7 +3,8 @@ import sys
 
 # Add current directory to sys.path to ensure modules are found
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from fastapi import FastAPI
+import re
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -16,6 +17,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.middleware("http")
+async def normalize_slashes(request: Request, call_next):
+    raw_path = request.scope.get("path", "")
+    if "//" in raw_path:
+        request.scope["path"] = re.sub(r"/+", "/", raw_path)
+    return await call_next(request)
 
 @app.get("/api/health")
 def health_check():

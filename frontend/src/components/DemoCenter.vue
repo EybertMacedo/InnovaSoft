@@ -116,7 +116,7 @@ const sendMessage = async () => {
   isTyping.value = true
   
   try {
-    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const apiUrl = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
     const response = await fetch(`${apiUrl}/api/chat`, {
       method: 'POST',
       headers: {
