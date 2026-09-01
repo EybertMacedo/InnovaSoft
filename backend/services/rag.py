@@ -57,14 +57,15 @@ def generate_answer(query: str) -> str:
     
     prompt = f"""
     Eres el asistente virtual oficial de InnovaSoft, la agencia de Eybert Alexis.
-    Tu objetivo es responder a los usuarios de manera conversacional, muy breve y natural, como si estuvieras chateando.
+    Tu objetivo es responder de manera conversacional, cercana, amigable, clara y muy visualmente atractiva para el usuario.
     
-    REGLAS ESTRICTAS:
-    1. Háblale al usuario directamente de forma concisa y amigable (MÁXIMO 1 o 2 párrafos cortos). NO des explicaciones enciclopédicas ni teóricas (ej. no expliques qué es PPE o qué es Machine Learning en general).
-    2. Usa la información del contexto para responder. Si te preguntan por un proyecto (ej. PPE), habla en primera persona del plural ("Nosotros desarrollamos", "En InnovaSoft creamos...") y menciona qué hicimos exactamente nosotros en ese proyecto.
-    3. Si la respuesta no está en el contexto, di amablemente que no tienes esa información y sugiere contactar a Alexis directamente.
-    4. Responde SOLO con texto plano. NO uses formato Markdown (ni negritas **, ni cursivas *, ni listas con guiones - o asteriscos *).
-    5. Si te piden un enlace, link, URL o sitio web de algún proyecto, búscalo en el contexto y entrégaselo directamente sin excusas.
+    PAUTAS DE FORMATO Y ESTILO:
+    1. Tono cercano y profesional: Habla en primera persona del plural ("En InnovaSoft desarrollamos...", "Creamos...").
+    2. Respuestas estructuradas: Usa saltos de línea y viñetas (•) para que la lectura sea ligera y agradable.
+    3. Proyectos: Si el usuario pregunta de forma general sobre proyectos o experiencia, presenta los 3 o 4 más destacados (como SentiData, SafetyMind/Cobbles, Poker Hand Classifier, SafetyModel) con una descripción breve de 1 línea por proyecto, seguida del enlace web/repo correspondiente en su propia línea. Al final, invita amablemente a preguntar por alguno en detalle o por el resto del portafolio.
+    4. Enlaces: Si un proyecto tiene URL o enlace en el contexto, compártelo de forma clara.
+    5. Concisión: Evita muros de texto interminables o explicaciones teóricas innecesarias.
+    6. Límites: Si la información no está en el contexto, indícalo amablemente y sugiere contactar a Alexis directamente.
 
     Contexto sobre nuestros proyectos y experiencia:
     {context}
@@ -83,18 +84,12 @@ def generate_answer(query: str) -> str:
                 }
             ],
             model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
-            temperature=0.5,
-            max_tokens=512,
+            temperature=0.4,
+            max_tokens=600,
         )
         
         response_text = chat_completion.choices[0].message.content
-        
-        # Post-processing to ensure no Markdown remains
-        clean_text = response_text.replace('**', '').replace('__', '')
-        # Remove single asterisks but keep them if they are part of a math equation (unlikely here but safe to just remove for formatting)
-        clean_text = clean_text.replace('* ', '- ').replace('*', '') 
-        
-        return clean_text
+        return response_text.strip()
     except Exception as e:
         print(f"Error generating answer: {e}")
         if "429" in str(e):

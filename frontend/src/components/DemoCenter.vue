@@ -157,6 +157,28 @@ const sendMessage = async () => {
   }
 }
 
+const formatMessage = (text) => {
+  if (!text) return ''
+  // Escape HTML
+  let html = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+
+  // Bold text: **text**
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-white">$1</strong>')
+
+  // Clickable links: https://...
+  const urlRegex = /(https?:\/\/[^\s\)\<\>]+)/g
+  html = html.replace(urlRegex, (url) => {
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2 break-all inline-flex items-center gap-1 font-medium transition-colors">${url}</a>`
+  })
+
+  return html
+}
+
 // Mini Browser
 const browserUrl = ref('https://sentidata-dashboard.vercel.app/')
 const currentUrl = ref('https://sentidata-dashboard.vercel.app/')
@@ -369,9 +391,9 @@ onUnmounted(() => {
               <div 
                 v-for="msg in chatMessages" 
                 :key="msg.id"
-                :class="['max-w-[80%] p-3 text-sm border rounded-lg backdrop-blur-sm', msg.sender === 'user' ? 'ml-auto bg-blue-600/90 text-white border-blue-500/50' : 'bg-zinc-700/60 text-zinc-100 border-zinc-600/50']"
+                :class="['max-w-[85%] p-3.5 text-sm border rounded-lg backdrop-blur-sm whitespace-pre-wrap leading-relaxed', msg.sender === 'user' ? 'ml-auto bg-blue-600/90 text-white border-blue-500/50' : 'bg-zinc-700/60 text-zinc-100 border-zinc-600/50']"
+                v-html="formatMessage(msg.text)"
               >
-                {{ msg.text }}
               </div>
             </TransitionGroup>
             
