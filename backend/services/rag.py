@@ -82,7 +82,7 @@ def generate_answer(query: str) -> str:
                     "content": query,
                 }
             ],
-            model="llama-3.1-8b-instant",
+            model=os.getenv("GROQ_MODEL", "openai/gpt-oss-120b"),
             temperature=0.5,
             max_tokens=512,
         )
